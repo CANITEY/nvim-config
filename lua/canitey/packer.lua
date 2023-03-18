@@ -43,7 +43,7 @@ return require('packer').startup(function(use)
   use 'ThePrimeagen/vim-be-good'
   use {
       'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+      requires = { 'kyazdani42/nvim-web-devicons'}
   }
   use "EdenEast/nightfox.nvim" -- Packer
   use {
