@@ -1,3 +1,6 @@
+local function vimIcon()
+    return [[]]
+end
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -38,8 +41,8 @@ require('lualine').setup {
       lualine_b = {'branch'},
       lualine_c = {},
       lualine_x = {},
-      lualine_y = {},
-      lualine_z = {'tabs'}
+      lualine_y = {'tabs'},
+      lualine_z = {vimIcon}
   },
   winbar = {},
   inactive_winbar = {},
