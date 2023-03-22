@@ -19,16 +19,20 @@ vim.keymap.set('n', '<leader>n', vim.cmd.bnext)
 vim.keymap.set('n', '<leader>p', vim.cmd.bprevious)
 vim.keymap.set('n', '<leader>w', vim.cmd.bd)
 
--- nerdtree controls
+--UP nerdtree controls
 -- vim.keymap.set('n', '<leader>t', vim.cmd.NERDTreeToggle)
 
 -- disabling arrow keys
-vim.keymap.set('n', '<UP>', vim.cmd[[]]) 
-vim.keymap.set('n', '<RIGHT>', vim.cmd[[]]) 
-vim.keymap.set('n', '<LEFT>', vim.cmd[[]]) 
-vim.keymap.set('n', '<DOWN>', vim.cmd[[]]) 
+vim.keymap.set('n', '<UP>', vim.cmd[[]])
+vim.keymap.set('n', '<RIGHT>', vim.cmd[[]])
+vim.keymap.set('n', '<LEFT>', vim.cmd[[]])
+vim.keymap.set('n', '<DOWN>', vim.cmd[[]])
 
--- terminal keymap
+-- move freely within insert mode
+vim.keymap.set('i', '<A-k>', '<UP>')
+vim.keymap.set('i', '<A-j>', '<DOWN>')
+vim.keymap.set('i', '<A-l>', '<LEFT>')
+vim.keymap.set('i', '<A-h>', '<RIGHT>')
 
--- vim.keymap.set('n', '<M-H>', vim.cmd[[]])
-
+-- noh and escape
+vim.keymap.set('n', '<ESC>', ':noh <CR>')
