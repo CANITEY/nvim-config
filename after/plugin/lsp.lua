@@ -20,6 +20,10 @@ lsp.configure('lua-language-server', {
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_sources = cmp.config.sources({
+        {name = 'luasnip'}
+    }
+)
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-p>'] = cmp.mapping.select_prev_item({cmp_select}),
   ['<C-n>'] = cmp.mapping.select_next_item({cmp_select}),
@@ -35,23 +39,41 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
       behavior = cmp.ConfirmBehavior.Replace,
       select = false,
     },
+    ['<S-Tab>'] = cmp.mapping(function (fallback)
+        if luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+        else
+            fallback()
+        end
+    end
+    ),
+    ['<Tab>'] = cmp.mapping(function(fallback)
+        if luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+        else
+            fallback()
+        end
+    end
+    )
+
 })
-cmp_mappings['<Tab>'] = cmp.mapping(function(fallback)
-    if luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-    else
-        fallback()
-    end
-end
-)
-cmp_mappings['<S-Tab>'] = cmp.mapping(function (fallback)
-    if luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-    else
-        fallback()
-    end
-end
-)
+
+-- cmp_mappings['<Tab>'] = cmp.mapping(function(fallback)
+--     if luasnip.expand_or_jumpable() then
+--         luasnip.expand_or_jump()
+--     else
+--         fallback()
+--     end
+-- end
+-- )
+-- cmp_mappings['<S-Tab>'] = cmp.mapping(function (fallback)
+--     if luasnip.jumpable(-1) then
+--         luasnip.jump(-1)
+--     else
+--         fallback()
+--     end
+-- end
+-- )
 local cmp_config = lsp.defaults.cmp_config({
   window = {
     completion = cmp.config.window.bordered()
