@@ -35,4 +35,4 @@ vim.keymap.set('i', '<A-l>', '<LEFT>')
 vim.keymap.set('i', '<A-h>', '<RIGHT>')
 
 -- noh and escape
-vim.keymap.set('n', '<ESC>', ':noh <CR>')
+vim.keymap.set('n', '<ESC>', vim.cmd.noh)
