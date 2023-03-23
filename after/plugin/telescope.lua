@@ -17,5 +17,23 @@ require('telescope').setup({
         },
         sorting_strategy = "ascending",
         color_devicons = true,
+        vimgrep_arguments = {
+            "rg",
+            "-L",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+        },
+        prompt_prefix = "   ",
+        initial_mode = "insert",
+        extensions_list = { "themes", "terms" },
+        border = {},
+        selection_strategy = "reset",
+
+
+
     }
 })
